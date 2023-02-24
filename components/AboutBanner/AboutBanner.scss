@@ -1,0 +1,26 @@
+@import 'assets/styles/variable.scss';
+
+.aboutBanner {
+	overflow: hidden;
+	padding: 5rem 0;
+	h2 {
+		font-weight: 700;
+	}
+	p {
+		font-size: 1.3vw;
+	}
+	.caseStudy {
+		margin-top: 1.8rem;
+	}
+}
+.aboutBannerImg {
+	width: 40%;
+	position: absolute;
+	right: 0;
+	top: 10%;
+	animation: jump10p 5s linear infinite;
+	img {
+		display: block;
+		width: 100%;
+	}
+}

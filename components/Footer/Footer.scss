@@ -1,0 +1,100 @@
+// @import 'assets/styles/style.scss';
+@import 'assets/styles/variable.scss';
+footer {
+	background: url('../../assets/images/common-image/map.png') #fff;
+}
+.footerTop {
+	padding: 4rem 0 1rem;
+	.footerBoxLogo {
+		img {
+			max-width: 270px;
+			width: 100%;
+		}
+		ul {
+			li {
+				&:not(:last-child) {
+					margin-right: 0.85rem;
+				}
+				a {
+					color: $bg-3;
+					font-size: 1.6rem;
+				}
+			}
+		}
+	}
+}
+.footerBox {
+	ul {
+		li {
+			&:not(:last-child) {
+				margin-bottom: 0.75rem;
+			}
+			a {
+				color: $bg-3;
+				font-size: 1.125rem;
+				font-family: 'Proxima Nova Rg';
+				&:hover {
+					color: $bg-1;
+				}
+			}
+		}
+	}
+}
+.footerBtm {
+	background: $bg-3;
+	color: $bg-6;
+	font-size: 13px;
+	padding: 0.6rem 0;
+	ul {
+		li {
+			position: relative;
+			&:not(:last-child) {
+				margin-right: 20px;
+				&::after {
+					content: '';
+					height: 12px;
+					width: 1px;
+					background-color: #dadada;
+					position: absolute;
+					right: -10px;
+					top: 3px;
+				}
+			}
+			a {
+				font-size: 11px;
+				color: $bg-6;
+				display: block;
+				&:hover {
+					color: $bg-10;
+				}
+			}
+		}
+	}
+}
+
+.footerBoxContact {
+	ul {
+		margin-bottom: 30px;
+		li {
+			&:not(:last-child) {
+				margin-bottom: 10px;
+			}
+			a {
+				font-size: 22px;
+				color: #333;
+				svg {
+					color: $bg-1;
+					margin-right: 5px;
+				}
+				&:hover {
+					color: $bg-1;
+				}
+			}
+		}
+	}
+	p {
+		&:not(:last-child) {
+			margin-bottom: 15px;
+		}
+	}
+}
