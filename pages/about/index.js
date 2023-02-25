@@ -30,7 +30,7 @@ const AboutUsPage  = Container((props) => {
   );
 })
 export default AboutUsPage;
-export async function getStaticProps({ req, res }){
+export async function getServerSideProps({ req, res }){
   // res.setHeader(
   //   'Cache-Control',
   //   'public, s-maxage=10, stale-while-revalidate=59'
