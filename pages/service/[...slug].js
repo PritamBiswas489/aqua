@@ -1,6 +1,6 @@
 
 import Head from 'next/head';
-import Container from '@/containers/container';
+import Container from '@/containers/Container';
 import { SettingsContent, ServiceContent } from '@/helpers/data_utils';
 
 import ServicesTempOneBan from '@/components/ServicesTempOneBan/ServicesTempOneBan';

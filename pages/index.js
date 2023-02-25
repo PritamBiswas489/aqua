@@ -11,7 +11,7 @@ import HomeTestimonials from '@/components/HomeTestimonials/HomeTestimonials';
 import HomeSuccessProduct from '@/components/HomeSuccessProduct/HomeSuccessProduct';
 import HomePartner from '@/components/HomePartner/HomePartner';
 import { HomePageContent, SettingsContent } from '@/helpers/data_utils';
-import Container from '@/containers/container';
+import Container from '@/containers/Container';
 
 const HomePage = (props) => {
         const {  homeData, portfolioData, testimonialData  } = props.dataHomePage.data;

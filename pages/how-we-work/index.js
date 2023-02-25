@@ -8,7 +8,7 @@ import HowWeWorkInnerContent from '@/components/HowWeWorkInnerContent/HowWeWorkI
  
 import { HowWeWorkContent, SettingsContent  } from '@/helpers/data_utils';
 
-import Container from '@/containers/container';
+import Container from '@/containers/Container';
 
  
 

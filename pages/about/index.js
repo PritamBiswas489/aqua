@@ -8,7 +8,7 @@ import AboutBanner from '@/components/AboutBanner/AboutBanner';
 import AboutStory from '@/components/AboutStory/AboutStory';
 import HomePartner from '@/components/HomePartner/HomePartner';
 import AboutOurValue from '@/components/AboutOurValue/AboutOurValue';
-import Container from '@/containers/container';
+import Container from '@/containers/Container';
 
 const AboutUsPage  = Container((props) => {
   const {aboutData} = props.aboutContent.data;

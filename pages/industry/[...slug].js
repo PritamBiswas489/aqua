@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Container from '@/containers/container';
+import Container from '@/containers/Container';
 import { SettingsContent, IndustryContent } from '@/helpers/data_utils';
 
 import HomeSuccessProduct from '@/components/HomeSuccessProduct/HomeSuccessProduct';
