@@ -22,8 +22,11 @@ import { FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa';
 
 import $ from 'jquery';
 
+import config from '@/helpers/config';
+const {REACT_APP_RESOURCE_URL} = config();
+
 export default function Header({settings}){
-	console.log("========= settings ======================");
+	
 	 
 	const settingsContent = JSON.parse(settings.data.settingsData.content);
 	const services = settings.data.serviceData;
@@ -134,7 +137,7 @@ export default function Header({settings}){
 																	{services?.map((val, i) => (
 																		<div className="col-6" key={`services-${i}`}>
 																			<Link className="dropdown-item" href={`/service/${val?.slug}`}>
-																				<img alt="" className src={`${process.env.REACT_APP_RESOURCE_URL}/${val?.logo}`} />
+																				<img alt="" className src={`${REACT_APP_RESOURCE_URL}/${val?.logo}`} />
 																				<span>
 																					{val?.serviceName}
 																					<small>{val?.ShortDesc}</small>
@@ -150,7 +153,7 @@ export default function Header({settings}){
 																<ul className="ql">
 																	<li>
 																		<div className="dropdown-item">
-																			<img alt="" className src={menuIconOne} />
+																			<img alt="" className src={menuIconOne.src} />
 																			<span>
 																				Discovery <small>Explore a wide-range of projects</small>
 																			</span>
@@ -159,7 +162,7 @@ export default function Header({settings}){
 
 																	<li>
 																		<div className="dropdown-item">
-																			<img alt="" className src={menuIconOne} />
+																			<img alt="" className src={menuIconOne.src} />
 																			<span>
 																				Development <small>Agile Working Methodologies.</small>
 																			</span>
@@ -167,7 +170,7 @@ export default function Header({settings}){
 																	</li>
 																	<li>
 																		<div className="dropdown-item">
-																			<img alt="" className src={menuIconOne} />
+																			<img alt="" className src={menuIconOne.src} />
 																			<span>
 																				Testing
 																				<small>Rigorous Testing &amp; QA</small>
@@ -176,7 +179,7 @@ export default function Header({settings}){
 																	</li>
 																	<li>
 																		<div className="dropdown-item">
-																			<img alt="" className src={menuIconOne} />
+																			<img alt="" className src={menuIconOne.src} />
 																			<span>
 																				Deployment
 																				<small>Seamless Launch of Product.</small>
@@ -206,7 +209,7 @@ export default function Header({settings}){
 																	{industries?.map((val, i) => (
 																		<div className="col-6" key={`industries-${i}`}>
 																			<Link className="dropdown-item" href={`/industry/${val?.slug}`}>
-																				<img alt="" className src={`${process.env.REACT_APP_RESOURCE_URL}/${val?.logo}`} />
+																				<img alt="" className src={`${REACT_APP_RESOURCE_URL}/${val?.logo}`} />
 																				<span>
 																					{val?.industryName}
 																					<small>{val?.ShortDesc}</small>
@@ -230,7 +233,7 @@ export default function Header({settings}){
 																<ul className="ql">
 																	<li>
 																		<div className="dropdown-item">
-																			<img alt="" className src={menuIconOne} />
+																			<img alt="" className src={menuIconOne.src} />
 																			<span>
 																				Discovery <small>Explore a wide-range of projects</small>
 																			</span>
@@ -239,7 +242,7 @@ export default function Header({settings}){
 
 																	<li>
 																		<div className="dropdown-item">
-																			<img alt="" className src={menuIconOne} />
+																			<img alt="" className src={menuIconOne.src} />
 																			<span>
 																				Development <small>Agile Working Methodologies.</small>
 																			</span>
@@ -247,7 +250,7 @@ export default function Header({settings}){
 																	</li>
 																	<li>
 																		<div className="dropdown-item">
-																			<img alt="" className src={menuIconOne} />
+																			<img alt="" className src={menuIconOne.src} />
 																			<span>
 																				Testing
 																				<small>Rigorous Testing &amp; QA</small>
@@ -256,7 +259,7 @@ export default function Header({settings}){
 																	</li>
 																	<li>
 																		<div className="dropdown-item">
-																			<img alt="" className src={menuIconOne} />
+																			<img alt="" className src={menuIconOne.src} />
 																			<span>
 																				Deployment
 																				<small>Seamless Launch of Product.</small>
@@ -270,7 +273,7 @@ export default function Header({settings}){
 												</div>
 											</li>
 											<li>
-												<Link href="#" className={(path === 'how-we-work' || path === 'About') && 'active'}>
+												<Link href="#" className={(path === 'how-we-work' || path === 'about') && 'active'}>
 													About <MdOutlineArrowDropDown />
 												</Link>
 												<div className="subMenu">
@@ -285,14 +288,14 @@ export default function Header({settings}){
 																<div className="row no-gutters">
 																	<div className="col-6">
 																		<Link className="dropdown-item" href="/how-we-work">
-																			<img alt="" className src={menuIconOne} />
+																			<img alt="" className src={menuIconOne.src} />
 																			<span>
 																				How We Work
 																				<small>Best Game App Developers.</small>
 																			</span>
 																		</Link>
 																		<Link className="dropdown-item" href="/testimonial">
-																			<img alt="" className src={menuIconOne} />
+																			<img alt="" className src={menuIconOne.src} />
 																			<span>
 																				Testimonial
 																				<small>Best Game App Developers.</small>
@@ -301,14 +304,14 @@ export default function Header({settings}){
 																	</div>
 																	<div className="col-6">
 																		<Link className="dropdown-item" href="/about">
-																			<img alt="" className src={menuIconOne} />
+																			<img alt="" className src={menuIconOne.src} />
 																			<span>
 																				Who We Are
 																				<small>Best Game App Developers.</small>
 																			</span>
 																		</Link>
 																		<Link className="dropdown-item" href="/blog">
-																			<img alt="" className src={menuIconOne} />
+																			<img alt="" className src={menuIconOne.src} />
 																			<span>
 																				Blog
 																				<small>Best Game App Developers.</small>
@@ -322,7 +325,7 @@ export default function Header({settings}){
 																<ul className="ql">
 																	<li>
 																		<div className="dropdown-item">
-																			<img alt="" className src={menuIconOne} />
+																			<img alt="" className src={menuIconOne.src} />
 																			<span>
 																				10+ <small>Years of Experience</small>
 																			</span>
@@ -330,7 +333,7 @@ export default function Header({settings}){
 																	</li>
 																	<li>
 																		<div className="dropdown-item">
-																			<img alt="" className src={menuIconOne} />
+																			<img alt="" className src={menuIconOne.src} />
 																			<span>
 																				600+ <small>Employees</small>
 																			</span>
@@ -338,7 +341,7 @@ export default function Header({settings}){
 																	</li>
 																	<li>
 																		<div className="dropdown-item">
-																			<img alt="" className src={menuIconOne} />
+																			<img alt="" className src={menuIconOne.src} />
 																			<span>
 																				700+ <small>Projects</small>
 																			</span>
@@ -346,7 +349,7 @@ export default function Header({settings}){
 																	</li>
 																	<li>
 																		<div className="dropdown-item">
-																			<img alt="" className src={menuIconOne} />
+																			<img alt="" className src={menuIconOne.src} />
 																			<span>
 																				500+
 																				<small>Clients</small>
