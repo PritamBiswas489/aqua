@@ -33,14 +33,14 @@ const AboutUsPage  = (props) => {
 }
 export default Container(AboutUsPage);
 
-export async function getServerSideProps({ req, res }){
+export async function getStaticProps({ req, res }){
  
   return {
       props:{
         aboutContent: await AboutPageContent(),
         settingsContent : await SettingsContent(),
       },
-      // revalidate:config.revalidate
+      revalidate:config.revalidate
   };
 }
 

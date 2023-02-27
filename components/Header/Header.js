@@ -22,6 +22,9 @@ import { FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa';
 
 import $ from 'jquery';
 
+import { useRouter } from 'next/router'
+
+
 import config from '@/helpers/config';
 const {REACT_APP_RESOURCE_URL} = config();
 
@@ -31,8 +34,8 @@ export default function Header({settings}){
 	const settingsContent = JSON.parse(settings.data.settingsData.content);
 	const services = settings.data.serviceData;
 	const industries = settings.data.industryData;
-	const path = window.location.pathname.split('/').pop();
-	// console.log(settings.data);
+	const router = useRouter();
+	const path = router.pathname;
 
     const [animate, setAnimate] = useState(0);
     const handleClick = () => {
@@ -273,7 +276,7 @@ export default function Header({settings}){
 												</div>
 											</li>
 											<li>
-												<Link href="#" className={(path === 'how-we-work' || path === 'about') && 'active'}>
+												<Link href="#" className={(path === '/how-we-work' || path === '/about') && 'active'}>
 													About <MdOutlineArrowDropDown />
 												</Link>
 												<div className="subMenu">

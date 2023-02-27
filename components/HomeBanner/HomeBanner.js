@@ -1,4 +1,3 @@
-import React from 'react';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import './HomeBanner.scss';
@@ -17,14 +16,14 @@ function HomeBanner({homeContent}) {
 				<div className="bannerLeft">
 					<h6>Introducingh</h6>
 					<h2 dangerouslySetInnerHTML={{ __html: homeData?.banner?.title ?? `Hire a developer and monetize your business with <span>AquaLeaf IT Solutions</span>` }}></h2>
-					<p
+					<div
 						dangerouslySetInnerHTML={{
 							__html:
 								homeData?.banner?.description ??
 								`Bring your go-to-market teams together to deliver personalized customer experiences in real time – so you can increase your revenue, shorten your sales
 						cycles, and strengthen your brand.`,
 						}}
-					></p>
+					></div>
 				</div>
 				<div className="bannerRight">
 					<div className="qSvg">
@@ -33,18 +32,18 @@ function HomeBanner({homeContent}) {
 				</div>
 			</section>
 			<section className="homeBanMobArea">
-			<img src={homeData?.banner?.mobileImg ? `${process.env.REACT_APP_RESOURCE_URL}/${homeData?.banner?.mobileImg}` : mobBan.src} alt="" />
+			<img src={homeData?.banner?.mobileImg ? `${REACT_APP_RESOURCE_URL}/${homeData?.banner?.mobileImg}` : mobBan.src} alt="" />
 				<div className="bannerLeft">
 					<h6>Introducingh</h6>
 					<h2 dangerouslySetInnerHTML={{ __html: homeData?.banner?.title ?? `Hire a developer and monetize your business with <span>AquaLeaf IT Solutions</span>` }}></h2>
-					<p
+					<div
 						dangerouslySetInnerHTML={{
 							__html:
 								homeData?.banner?.description ??
 								`Bring your go-to-market teams together to deliver personalized customer experiences in real time – so you can increase your revenue, shorten your sales
 						cycles, and strengthen your brand.`,
 						}}
-					></p>
+					></div>
 				</div>
 			</section>
 		</>
