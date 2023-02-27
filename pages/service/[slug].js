@@ -61,6 +61,6 @@ export async function getStaticProps(context){
             settingsContent : await SettingsContent(),
             serviceData: await ServiceContent(slug)
         },
-        revalidate:config.revalidate
+        revalidate:config().revalidate
     };
   }

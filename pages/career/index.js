@@ -33,7 +33,7 @@ export async function getStaticProps({ req, res }){
         settingsContent : await SettingsContent(),
         careerContent: await getCareerContent()
       },
-      revalidate:config.revalidate
+      revalidate:config().revalidate
   };
 }
 

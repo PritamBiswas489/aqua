@@ -225,7 +225,7 @@ export async function getStaticProps({ req, res }){
       props:{
         settingsContent : await SettingsContent(),
       },
-      revalidate:config.revalidate
+      revalidate:config().revalidate
   };
 
 }

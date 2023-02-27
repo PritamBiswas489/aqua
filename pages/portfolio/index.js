@@ -217,7 +217,7 @@ export async function getStaticProps({ req, res }){
         settingsContent : await SettingsContent(),
         portfoloContent: await PortfoloContent(),
       },
-      revalidate:config.revalidate
+      revalidate:config().revalidate
   };
 }
 

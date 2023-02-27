@@ -44,7 +44,7 @@ export async function getStaticProps({ req, res }){
         settingsContent : await SettingsContent(),
         howWeWorkContent: await HowWeWorkContent()
       },
-      revalidate:config.revalidate
+      revalidate:config().revalidate
   };
 }
 

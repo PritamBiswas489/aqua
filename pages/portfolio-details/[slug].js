@@ -62,6 +62,6 @@ export async function getStaticProps(context){
          settingsContent : await SettingsContent(),
          details: await PortfolioDetails(slug)
      },
-     revalidate:config.revalidate
+     revalidate:config().revalidate
  };
 }

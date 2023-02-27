@@ -29,26 +29,18 @@ const AboutUsPage  = (props) => {
        
     </>
   );
-<<<<<<< HEAD
+ 
 }
 export default Container(AboutUsPage);
-export async function getStaticProps({ req, res }){
-  
-=======
-})
-export default AboutUsPage;
-export async function getStaticProps({ req, res }){
-  // res.setHeader(
-  //   'Cache-Control',
-  //   'public, s-maxage=10, stale-while-revalidate=59'
-  // )
->>>>>>> 06bc2a40f991cc82746bfcc589fe4e834d42240a
+
+export async function getServerSideProps({ req, res }){
+ 
   return {
       props:{
         aboutContent: await AboutPageContent(),
         settingsContent : await SettingsContent(),
       },
-      revalidate:config.revalidate
+      // revalidate:config.revalidate
   };
 }
 

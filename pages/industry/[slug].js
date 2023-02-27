@@ -47,6 +47,6 @@ export async function getStaticProps(context){
           settingsContent : await SettingsContent(),
           industryData: await IndustryContent(slug)
       },
-      revalidate:config.revalidate
+      revalidate:config().revalidate
   };
 }

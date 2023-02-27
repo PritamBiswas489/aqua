@@ -15,6 +15,7 @@ import Container from '@/containers/Container';
 import config from '@/helpers/config';
 
 
+
 const HomePage = (props) => {
         const {  homeData, portfolioData, testimonialData  } = props.dataHomePage.data;
         return (
@@ -44,11 +45,13 @@ export default Container(HomePage);
 
 export async function getStaticProps({ req, res }){
   
+  
+   
   return {
       props:{
         settingsContent : await SettingsContent(),
         dataHomePage: await HomePageContent(),
       },
-      revalidate:config.revalidate
+      revalidate:config().revalidate
   };
 }
