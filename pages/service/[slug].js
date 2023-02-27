@@ -11,6 +11,7 @@ import StoStep from '@/components/StoStep/StoStep';
 import ServicesFaq from '@/components/ServicesFaq/ServicesFaq';
 import StobGetBusiness from '@/components/StobGetBusiness/StobGetBusiness';
 import HomeSuccessProduct from '@/components/HomeSuccessProduct/HomeSuccessProduct';
+import config from '@/helpers/config';
 
 
 
@@ -40,13 +41,26 @@ function ServiceDetails(props) {
 }
 export default Container(ServiceDetails);
 
-export async function getServerSideProps(context){
-    const {params, req, res} = context;
-    const [slug]  = params.slug;
+export async function getStaticPaths(){
+    const  settingsContent = await SettingsContent();
+    const services = settingsContent.data.serviceData;
+    return {
+       fallback:false,
+       paths: services.map(service=>({
+           params:{
+               slug:service.slug.toString()
+           }  
+       }))
+    }      
+ }
+export async function getStaticProps(context){
+    const { params } = context;
+    const { slug } = params;
     return {
         props:{
             settingsContent : await SettingsContent(),
             serviceData: await ServiceContent(slug)
-        }
+        },
+        revalidate:config.revalidate
     };
   }

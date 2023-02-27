@@ -4,6 +4,7 @@ import ReactFullpage from '@fullpage/react-fullpage';
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import { useState, useEffect , useMemo} from 'react';
+import LetsTalk from '@/components/LetsTalk/LetsTalk';
 
 import './PortFolio.scss';
 import './PortFolioResponsive.scss';
@@ -194,6 +195,7 @@ const Portfolio =  (props) => {
                    
                     <section className="section sectionFooter fp-auto-height">
                       <Footer />
+                      <LetsTalk settings={settingsContent}></LetsTalk>
                     </section>
                   </div>
                 );
@@ -209,16 +211,13 @@ const Portfolio =  (props) => {
 export default Portfolio;
 
 export async function getStaticProps({ req, res }){
-  // res.setHeader(
-  //   'Cache-Control',
-  //   'public, s-maxage=10, stale-while-revalidate=59'
-  // );
+  
   return {
       props:{
         settingsContent : await SettingsContent(),
         portfoloContent: await PortfoloContent(),
       },
-      revalidate:60000
+      revalidate:config.revalidate
   };
 }
 

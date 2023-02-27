@@ -9,6 +9,7 @@ import HowWeWorkInnerContent from '@/components/HowWeWorkInnerContent/HowWeWorkI
 import { HowWeWorkContent, SettingsContent  } from '@/helpers/data_utils';
 
 import Container from '@/containers/Container';
+import config from '@/helpers/config';
 
  
 
@@ -37,16 +38,13 @@ function HowWeWork(props) {
 export default  Container(HowWeWork);
 
 export async function getStaticProps({ req, res }){
-  // res.setHeader(
-  //   'Cache-Control',
-  //   'public, s-maxage=10, stale-while-revalidate=59'
-  // )
+ 
   return {
       props:{
         settingsContent : await SettingsContent(),
         howWeWorkContent: await HowWeWorkContent()
       },
-      revalidate:60000
+      revalidate:config.revalidate
   };
 }
 

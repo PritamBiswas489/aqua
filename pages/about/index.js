@@ -9,8 +9,9 @@ import AboutStory from '@/components/AboutStory/AboutStory';
 import HomePartner from '@/components/HomePartner/HomePartner';
 import AboutOurValue from '@/components/AboutOurValue/AboutOurValue';
 import Container from '@/containers/Container';
+import config from '@/helpers/config';
 
-const AboutUsPage  = Container((props) => {
+const AboutUsPage  = (props) => {
   const {aboutData} = props.aboutContent.data;
   return (
     <>
@@ -28,19 +29,16 @@ const AboutUsPage  = Container((props) => {
        
     </>
   );
-})
-export default AboutUsPage;
-export async function getServerSideProps({ req, res }){
-  // res.setHeader(
-  //   'Cache-Control',
-  //   'public, s-maxage=10, stale-while-revalidate=59'
-  // )
+}
+export default Container(AboutUsPage);
+export async function getStaticProps({ req, res }){
+  
   return {
       props:{
         aboutContent: await AboutPageContent(),
         settingsContent : await SettingsContent(),
       },
-      revalidate:60000
+      revalidate:config.revalidate
   };
 }
 

@@ -6,6 +6,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import '@/assets/styles/style.scss';
 import '@/assets/styles/build.css';
 import dynamic from 'next/dynamic';
+import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
+import config from '@/helpers/config';
+const { REACT_APP_GOOGLE_RECAPTCHA_SITE_KEY} = config();
 
 import "nprogress/nprogress.css";
 const TopProgressBar = dynamic(
@@ -20,5 +23,21 @@ export default function App({ Component, pageProps }) {
   useEffect(() => {
     require("bootstrap/dist/js/bootstrap.bundle.min.js");
   }, []);
-  return <Layout><TopProgressBar /><Component {...pageProps} /></Layout>
+  return (
+    <GoogleReCaptchaProvider
+    reCaptchaKey={REACT_APP_GOOGLE_RECAPTCHA_SITE_KEY}
+    scriptProps={{
+      async: false,
+      defer: false,
+      appendTo: "head",
+      nonce: undefined,
+    }}
+  >
+  <Layout>
+    <TopProgressBar />
+    <Component {...pageProps} />
+  </Layout>
+  </GoogleReCaptchaProvider>
+  
+  );
 }

@@ -12,6 +12,8 @@ import HomeSuccessProduct from '@/components/HomeSuccessProduct/HomeSuccessProdu
 import HomePartner from '@/components/HomePartner/HomePartner';
 import { HomePageContent, SettingsContent } from '@/helpers/data_utils';
 import Container from '@/containers/Container';
+import config from '@/helpers/config';
+
 
 const HomePage = (props) => {
         const {  homeData, portfolioData, testimonialData  } = props.dataHomePage.data;
@@ -40,17 +42,13 @@ const HomePage = (props) => {
 }
 export default Container(HomePage);
 
- 
 export async function getStaticProps({ req, res }){
-  // res.setHeader(
-  //   'Cache-Control',
-  //   'public, s-maxage=10, stale-while-revalidate=59'
-  // )
+  
   return {
       props:{
         settingsContent : await SettingsContent(),
         dataHomePage: await HomePageContent(),
       },
-      revalidate:60000
+      revalidate:config.revalidate
   };
 }

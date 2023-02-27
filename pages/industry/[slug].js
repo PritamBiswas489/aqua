@@ -22,17 +22,31 @@ function InduustryDetailsPage(props) {
 			<ServicesTempTwoBody industryContent={industryContent} />
 			<HomeSuccessProduct />
     </>
-  )
+  );
 }
 export default Container(InduustryDetailsPage);
 
-export async function getServerSideProps(context){
-  const {params, req, res} = context;
-  const [slug]  = params.slug;
+export async function getStaticPaths(){
+   const  settingsContent = await SettingsContent();
+   const industries = settingsContent.data.industryData;
+   return {
+      fallback:false,
+      paths: industries.map(industry=>({
+          params:{
+              slug:industry.slug.toString()
+          }  
+      }))
+   }      
+}
+
+export async function getStaticProps(context){
+  const { params } = context;
+  const { slug } = params;
   return {
       props:{
           settingsContent : await SettingsContent(),
           industryData: await IndustryContent(slug)
-      }
+      },
+      revalidate:config.revalidate
   };
 }

@@ -1,5 +1,15 @@
 import Head from 'next/head'
- export default function Home() {
+import { SettingsContent,  getCareerContent } from '@/helpers/data_utils';
+import Container from '@/containers/Container';
+import './Carrer.scss';
+import CarrerBanner from '@/components/CarrerBanner/CarrerBanner';
+import CarrerComeOnBoard from '@/components/CarrerComeOnBoard/CarrerComeOnBoard';
+import CarrierRightMatch from '@/components/CarrierRightMatch/CarrierRightMatch';
+import CareerWorkHard from '@/components/CareerWorkHard/CareerWorkHard';
+import config from '@/helpers/config';
+
+function CareerContent(props) {
+  const careerContent = props.careerContent.data;
   return (
     <>
       <Head>
@@ -8,9 +18,23 @@ import Head from 'next/head'
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-       <center><h1>Career page</h1></center>
-      </main>
+      <CarrerBanner careerContent={careerContent}></CarrerBanner>
+      <CarrerComeOnBoard careerContent={careerContent}></CarrerComeOnBoard>
+      <CarrierRightMatch careerContent={careerContent}></CarrierRightMatch>
+      <CareerWorkHard careerContent={careerContent}></CareerWorkHard>
     </>
   )
 }
+export default Container(CareerContent);
+
+export async function getStaticProps({ req, res }){
+  return {
+      props:{
+        settingsContent : await SettingsContent(),
+        careerContent: await getCareerContent()
+      },
+      revalidate:config.revalidate
+  };
+}
+
+

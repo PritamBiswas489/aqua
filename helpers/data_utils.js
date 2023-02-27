@@ -39,6 +39,7 @@ export async function PortfoloContent(){
        const data = await response.json();
        return data; 
 }
+
 export async function ServiceContent(slug){
        const {REACT_APP_API_URL} = config();
        const response = await  fetch(
@@ -47,6 +48,7 @@ export async function ServiceContent(slug){
        const data = await response.json();
        return data; 
 }
+
 export async function IndustryContent(slug){
        const {REACT_APP_API_URL} = config();
        const response = await  fetch(
@@ -54,9 +56,62 @@ export async function IndustryContent(slug){
        );
        const data = await response.json();
        return data; 
-
 }
 
+export async function PortfolioDetails(slug){
+       const {REACT_APP_API_URL} = config();
+       const response = await  fetch(REACT_APP_API_URL+`/front/get-portfolio-details/${slug}`);
+       const data = await response.json();
+       return data;
+}
+export async function TestimonialContent(page){
+       const {REACT_APP_API_URL} = config();
+       const response = await  fetch(REACT_APP_API_URL+`/front/get-testimonial-content?page=${page}`);
+       const data = await response.json();
+       return data;
+
+}
+export async function getCareerContent(){
+       const {REACT_APP_API_URL} = config();
+       const response = await  fetch(REACT_APP_API_URL+`/front/get-career-content`);
+       const data = await response.json();
+       return data;
+
+}
+export async function getBlogList(page){
+       const {REACT_APP_API_URL} = config();
+       const response = await  fetch(REACT_APP_API_URL+`/front/get-blog-content?page=${page}`);
+       const data = await response.json();
+       return data;
+
+}
+export async function getBlogDetails(slug){
+       const {REACT_APP_API_URL} = config();
+       const response = await  fetch(REACT_APP_API_URL+`/front/get-blog-details/${slug}`);
+       const data = await response.json();
+       return data;
+
+}
+export async function sendContactData(data){
+       const {REACT_APP_API_URL} = config();
+       const response =  await fetch(REACT_APP_API_URL+`/front/add-contact`,{
+              method:'POST',
+              body:JSON.stringify(data),
+              headers:{
+                 'Content-Type':'application/json'
+              }
+            });
+           return response.json();
+}
+
+//`/add-contact`, data
+
+
+///get-blog-details/${slug}
+//`/get-blog-content?page=${page}`
+///get-career-content
+//`/get-testimonial-content?page=${page}
+//`/get-portfolio-details/${slug}`
 //`/industry-details/${slug}`
 
 
